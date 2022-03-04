@@ -1,0 +1,28 @@
+{
+  "name": "no-frills-react",
+  "version": "1.0.0",
+  "description": "# Demo 👇🏻 https://nitinajaydixit.github.io/no-frills-react/",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write \"src/**/*.{js,jsx}\"",
+    "format:check": "prettier --write \"src/**/*.{js,jsx}\"",
+    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nitinajaydixit/no-frills-react.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nitinajaydixit/no-frills-react/issues"
+  },
+  "homepage": "https://github.com/nitinajaydixit/no-frills-react#readme",
+  "devDependencies": {
+    "eslint": "^8.10.0",
+    "eslint-config-prettier": "^8.5.0",
+    "parcel": "^2.3.2",
+    "prettier": "^2.5.1"
+  }
+}
