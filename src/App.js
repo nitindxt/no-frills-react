@@ -2,7 +2,8 @@ import { render } from "react-dom";
 import SearchParams from "./SearchParams";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import Details from "./Details";
-import { StrictMode } from "react";
+import { StrictMode, useState } from "react";
+import ThemeContext from "./ThemeContext";
 
 /* const App = () => {
   return React.createElement("div", {}, [
@@ -27,17 +28,20 @@ import { StrictMode } from "react";
 
 //rewrite App in jsx
 const App = () => {
+  const theme = useState("purple"); //hook
   return (
     <StrictMode>
-      <BrowserRouter>
-        <header>
-          <Link to="/">Adopt Me!</Link>
-        </header>
-        <Routes>
-          <Route path="/details/:id" element={<Details></Details>}></Route>
-          <Route path="/" element={<SearchParams></SearchParams>}></Route>
-        </Routes>
-      </BrowserRouter>
+      <ThemeContext.Provider value={theme}>
+        <BrowserRouter>
+          <header>
+            <Link to="/">Adopt Me!</Link>
+          </header>
+          <Routes>
+            <Route path="/details/:id" element={<Details></Details>}></Route>
+            <Route path="/" element={<SearchParams></SearchParams>}></Route>
+          </Routes>
+        </BrowserRouter>
+      </ThemeContext.Provider>
       {/* <Pet name="Luna" animal="Dog" breed="Havanese"></Pet>
       <Pet name="Dude" animal="Dog" breed="Desi"></Pet>
       <Pet name="Sky" animal="Bird" breed="Budgie"></Pet> */}

@@ -1,7 +1,9 @@
 import { useParams } from "react-router-dom";
-import { Component } from "react";
+import { Component, useContext } from "react";
 import Carousel from "./Carousel";
 import ErrorBoundary from "./ErrorBoundary";
+import ThemeContext from "./ThemeContext"; //1st way of using app level context
+
 /* function component : 
 const Details= ()=>{
     const {id} = useParams();
@@ -59,7 +61,12 @@ class Details extends Component {
           <h2>
             {animal} — {breed} — {city}, {state}
           </h2>
-          <button>Adopt {name}</button>
+         {/* 1st way */}
+          <ThemeContext.Consumer>
+            {([theme]) => (
+              <button style={{ backgroundColor: theme }}>Adopt {name}</button>
+            )}
+          </ThemeContext.Consumer>
           <p>{description}</p>
         </div>
       </div>
@@ -68,9 +75,10 @@ class Details extends Component {
 }
 const WrappedDetails = () => {
   const params = useParams();
+  const [theme] = useContext(ThemeContext); //2nd way / lazy way if you are using hooks
   return (
     <ErrorBoundary>
-      <Details params={params}></Details>;
+      <Details theme={theme} params={params}></Details>;
     </ErrorBoundary>
   );
 };

@@ -5,9 +5,7 @@
 
 body {
   background-color: #81a69b;
-  background: url(https://img.freepik.com/free-vector/animal-background-vector-with-cute-pets-illustration_53876-127698.jpg?w=826)
-    no-repeat;
-  background-size: cover;
+  background: url(http://pets-images.dev-apis.com/pets/wallpaperB.jpg);
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
