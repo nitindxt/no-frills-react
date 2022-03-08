@@ -1,5 +1,7 @@
 //import React from "react"; //in jsx it's imported by default
 
+import { Link } from "react-router-dom";
+
 /* const Pet = (props) => {
   return React.createElement("div", {}, [
     React.createElement("h1", {}, props.name),
@@ -9,13 +11,23 @@
 }; */
 
 //rewrite above code in jsx format (clean and renders as it reads) 👇🏻
-const Pet = (props) => {
+const Pet = ({ name, animal, breed, location, images, id }) => {
+  let hero = "http://pet-images.dev-apis.com/pets/none.jpg";
+  if (images.length) {
+    hero = images[0];
+  }
   return (
-    <div>
-      <h1>{props.name}</h1>
-      <h2>{props.animal}</h2>
-      <h2>{props.breed}</h2>
-    </div>
+    <Link to={`/details/${id}`} className="pet">
+      <div className="image-container">
+        <img src={hero} alt={name}></img>
+      </div>
+      <div className="info">
+        <h1>{name}</h1>
+        <h2>
+          {animal} - {breed} - {location}
+        </h2>
+      </div>
+    </Link>
   );
 };
 

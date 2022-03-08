@@ -1,5 +1,8 @@
 import { render } from "react-dom";
 import SearchParams from "./SearchParams";
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import Details from "./Details";
+import { StrictMode } from "react";
 
 /* const App = () => {
   return React.createElement("div", {}, [
@@ -25,13 +28,20 @@ import SearchParams from "./SearchParams";
 //rewrite App in jsx
 const App = () => {
   return (
-    <div>
-      <h1>Adopt Me!</h1>
-      <SearchParams></SearchParams>
+    <StrictMode>
+      <BrowserRouter>
+        <header>
+          <Link to="/">Adopt Me!</Link>
+        </header>
+        <Routes>
+          <Route path="/details/:id" element={<Details></Details>}></Route>
+          <Route path="/" element={<SearchParams></SearchParams>}></Route>
+        </Routes>
+      </BrowserRouter>
       {/* <Pet name="Luna" animal="Dog" breed="Havanese"></Pet>
       <Pet name="Dude" animal="Dog" breed="Desi"></Pet>
       <Pet name="Sky" animal="Bird" breed="Budgie"></Pet> */}
-    </div>
+    </StrictMode>
   );
 };
 

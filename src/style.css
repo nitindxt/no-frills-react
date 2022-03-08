@@ -1,11 +1,12 @@
 * {
   box-sizing: border-box;
-  color: #333;
+  color: rgb(44, 42, 42);
 }
 
 body {
   background-color: #81a69b;
-  background: url(https://images.pexels.com/photos/4588013/pexels-photo-4588013.jpeg?cs=srgb&dl=pexels-anna-shvets-4588013.jpg&fm=jpg)no-repeat center top;
+  background: url(https://img.freepik.com/free-vector/animal-background-vector-with-cute-pets-illustration_53876-127698.jpg?w=826)
+    no-repeat;
   background-size: cover;
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -81,7 +82,7 @@ body {
   white-space: nowrap;
   font-weight: normal;
   font-size: 30px;
-  color: #333;
+  color: rgb(34, 30, 30);
   width: 95%;
   overflow: hidden;
   margin: 0;
