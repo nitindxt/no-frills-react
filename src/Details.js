@@ -3,6 +3,7 @@ import { Component, useContext } from "react";
 import Carousel from "./Carousel";
 import ErrorBoundary from "./ErrorBoundary";
 import ThemeContext from "./ThemeContext"; //1st way of using app level context
+import Modal from "./Modal";
 
 /* function component : 
 const Details= ()=>{
@@ -18,8 +19,8 @@ class Details extends Component {
   //   this.state = { loading: true };
   // }
   //writing above constructor code as class properties
-  state = { loading: true };
-  /*before ecma 2022 we had to inlude this by doing npm i -D @babel/plugin-proposal-class-properties 
+  state = { loading: true, showModal: false };
+  /*before ecma 2022 we had to include this by doing npm i -D @babel/plugin-proposal-class-properties 
   and would have to add 
   {
     "plugins":  ["@babel/plugin-proposal-class-properties"]
@@ -44,13 +45,15 @@ class Details extends Component {
     //more better way of doing above line
     this.setState({ loading: false, ...json.pets[0] });
   }
+
+  toggleModal = () => this.setState({showModal: !this.state.showModal});
   render() {
     if (this.state.loading) {
       return <h2>loading...</h2>;
     }
     // throw new Error("lmao you crashed");
 
-    const { animal, breed, city, state, description, name, images } =
+    const { animal, breed, city, state, description, name, images, showModal } =
       this.state;
 
     return (
@@ -61,13 +64,29 @@ class Details extends Component {
           <h2>
             {animal} — {breed} — {city}, {state}
           </h2>
-         {/* 1st way */}
+          {/* 1st way */}
           <ThemeContext.Consumer>
             {([theme]) => (
-              <button style={{ backgroundColor: theme }}>Adopt {name}</button>
+              <button
+                onClick={this.toggleModal}
+                style={{ backgroundColor: theme }}
+              >
+                Adopt {name}
+              </button>
             )}
           </ThemeContext.Consumer>
           <p>{description}</p>
+          {showModal ? (
+            <Modal>
+              <div>
+                <h1>Would you like to adopt {name}?</h1>
+                <div className="buttons">
+                  <a href="https://bit.ly/pet-adopt">Yes</a>
+                  <button onClick={this.toggleModal}>No</button>
+                </div>
+              </div>
+            </Modal>
+          ) : null}
         </div>
       </div>
     );
