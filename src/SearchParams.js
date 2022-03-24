@@ -20,6 +20,7 @@ const SearchParams = () => {
 
   //[] is array of dependency variables, and
   // [] means call useEffect once after render has finished
+  //You can accomplish this only-run-on-creation by providing an empty array.
   //['breeds'] would mean call useEffect everytime there's change in breeds array on line 9
   // leaving it empty would mean call it whenver any change happens in any dependent variable from line 6 to 10 and that would be a bad practice as it would cause perform issue if we call this api that often
 
