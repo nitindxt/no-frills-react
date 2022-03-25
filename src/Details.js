@@ -46,7 +46,7 @@ class Details extends Component {
     this.setState({ loading: false, ...json.pets[0] });
   }
 
-  toggleModal = () => this.setState({showModal: !this.state.showModal});
+  toggleModal = () => this.setState({ showModal: !this.state.showModal });
   render() {
     if (this.state.loading) {
       return <h2>loading...</h2>;
