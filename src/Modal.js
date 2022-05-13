@@ -11,7 +11,7 @@ const Modal = ({ children }) => {
     const modalRoot = document.getElementById("modal");
     modalRoot.appendChild(elRelf.current);
 
-    return () => modalRoot.removeChild(elRelf.current);//cleanup function
+    return () => modalRoot.removeChild(elRelf.current); //cleanup function
   }, []);
 
   return createPortal(<div>{children}</div>, elRelf.current);

@@ -11,7 +11,7 @@ class Carousel extends Component {
 
   handleIndexClick = (event) => {
     this.setState({
-        active: +event.target.dataset.index,//that + converts it to number as index gets passed in dom as a string
+      active: +event.target.dataset.index, //that + converts it to number as index gets passed in dom as a string
     });
   };
 
